@@ -9,23 +9,30 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  ScrollView,
 } from 'react-native';
 
 export default class SampleScrollViewIssue extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+      <View style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }}>
+          {Array.from({ length: 9 }).map((item, index) => (
+            <View style={styles.container} key={index}>
+              <Text style={styles.welcome}>
+                Welcome to React Native!
+              </Text>
+              <Text style={styles.instructions}>
+                To get started, edit index.android.js
+              </Text>
+              <Text style={styles.instructions}>
+                Double tap R on your keyboard to reload,{'\n'}
+                Shake or press menu button for dev menu
+              </Text>
+            </View>
+          ))}
+        </ScrollView>
       </View>
     );
   }
@@ -36,12 +43,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'black',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    color: 'grey',
   },
   instructions: {
     textAlign: 'center',
